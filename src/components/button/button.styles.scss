@@ -15,6 +15,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+  border-radius: 4px;
 
   &:hover {
     background-color: white;
@@ -33,11 +34,11 @@
   }
 
   &.facebook-sign-in {
-    background-color: #42f445;
+    background-color: #1877f2;
     color: white;
 
     &:hover {
-      background-color: #35e838;
+      background-color: #3f8df4;
       border: none;
     }
   }
