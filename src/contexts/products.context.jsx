@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 
 import SHOP_DATA from '../shop-data.json';
 // The actual value you want to access.
