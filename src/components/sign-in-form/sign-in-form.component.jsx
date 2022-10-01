@@ -22,13 +22,11 @@ const SignInForm = () => {
   const { email, password } = formFields;
 
   const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const logFacebookUser = async () => {
-    const { user } = await signInWithFacebookPopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithFacebookPopup();
   };
 
   const handleChange = (event) => {
@@ -46,7 +44,7 @@ const SignInForm = () => {
 
     try {
       const { user } = await signInAuthWithEmailAndPassword(email, password);
-      console.log(user);
+
       resetFormFields();
     } catch (err) {
       switch (err.code) {
