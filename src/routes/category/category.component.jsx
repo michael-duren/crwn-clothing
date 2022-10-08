@@ -5,7 +5,11 @@ import ProductCard from '../../components/product-card/product-card.component';
 
 import { CategoriesContext } from '../../contexts/categories.context';
 
-import './category.styles.scss';
+import {
+  CategoryContainerTitle,
+  CategoryTitle,
+  CategoryContainer,
+} from './category.styles';
 
 const Category = () => {
   const { category } = useParams();
@@ -18,20 +22,20 @@ const Category = () => {
 
   return (
     <Fragment>
-      <div className="category-container-title">
-        <h2 className="category-title">{category.toUpperCase()}</h2>
-        <h2 className="category-title">&</h2>
-        <h2 className="category-title">{category.toUpperCase()}</h2>
-        <h2 className="category-title">&</h2>
-        <h2 className="category-title">{category.toUpperCase()}</h2>
-        <h2 className="category-title">!</h2>
-      </div>
-      <div className="category-container">
+      <CategoryContainerTitle>
+        <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+        <CategoryTitle>&</CategoryTitle>
+        <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+        <CategoryTitle>&</CategoryTitle>
+        <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+        <CategoryTitle>!</CategoryTitle>
+      </CategoryContainerTitle>
+      <CategoryContainer>
         {products &&
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-      </div>
+      </CategoryContainer>
     </Fragment>
   );
 };
