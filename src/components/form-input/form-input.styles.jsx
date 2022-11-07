@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import FormInput from './form-input.component';
 
 const subColor = 'grey';
 const mainColor = 'black';
