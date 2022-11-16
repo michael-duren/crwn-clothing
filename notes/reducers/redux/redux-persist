@@ -1,0 +1,4 @@
+install : yarn add redux-persist
+
+to use we have to import 2 things from redux-persist: 
+import { persistStore, persistReducer } from 'redux-persist'
