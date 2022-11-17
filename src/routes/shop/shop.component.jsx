@@ -9,7 +9,7 @@ const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategoriesAsync);
+    dispatch(fetchCategoriesAsync());
   }, [dispatch]);
 
   return (
