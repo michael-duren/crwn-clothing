@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { signInWithFacebookPopup } from '../../utils/firebase/firebase.utils';
-
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 import {
   googleSignInStart,
   emailSignInStart,
+  facebookSignInStart,
 } from '../../store/user/user.action';
 
 import FormInput from '../form-input/form-input.component';
@@ -27,7 +26,7 @@ const SignInForm = () => {
   };
 
   const logFacebookUser = async () => {
-    await signInWithFacebookPopup();
+    dispatch(facebookSignInStart());
   };
 
   const handleChange = (event) => {
