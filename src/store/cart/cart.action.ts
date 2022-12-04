@@ -1,5 +1,5 @@
 import { CategoryItem } from '../categories/category.types';
-import { CART_ACTION_TYPES, CartItem } from './cart.types';
+import { CART_ACTION_TYPES, CartItemType } from './cart.types';
 import {
   createAction,
   withMatcher,
@@ -7,9 +7,9 @@ import {
 } from '../../utils/reducer/reducer.utils';
 
 const addCartItem = (
-  cartItems: CartItem[],
+  cartItems: CartItemType[],
   productToAdd: CategoryItem
-): CartItem[] => {
+): CartItemType[] => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
   );
@@ -25,9 +25,9 @@ const addCartItem = (
 };
 
 const removeCartItem = (
-  cartItems: CartItem[],
-  productToRemove: CartItem
-): CartItem[] => {
+  cartItems: CartItemType[],
+  productToRemove: CartItemType
+): CartItemType[] => {
   const removeItem = cartItems.find(
     (cartItem) => cartItem.id === productToRemove.id
   );
@@ -44,9 +44,9 @@ const removeCartItem = (
 };
 
 const removeSingleItem = (
-  cartItems: CartItem[],
-  productToRemove: CartItem
-): CartItem[] => {
+  cartItems: CartItemType[],
+  productToRemove: CartItemType
+): CartItemType[] => {
   return cartItems.filter((cartItem) => cartItem.id !== productToRemove.id);
 };
 
@@ -57,7 +57,7 @@ export type SetIsCartOpen = ActionWithPayload<
 
 export type SetCartItems = ActionWithPayload<
   CART_ACTION_TYPES.SET_CART_ITEMS,
-  CartItem[]
+  CartItemType[]
 >;
 
 export const setIsCartOpen = withMatcher(
@@ -66,12 +66,12 @@ export const setIsCartOpen = withMatcher(
 );
 
 export const setCartItems = withMatcher(
-  (cartItems: CartItem[]): SetCartItems =>
+  (cartItems: CartItemType[]): SetCartItems =>
     createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems)
 );
 
 export const addItemToCart = (
-  cartItems: CartItem[],
+  cartItems: CartItemType[],
   productToAdd: CategoryItem
 ) => {
   const newCartItems = addCartItem(cartItems, productToAdd);
@@ -79,16 +79,16 @@ export const addItemToCart = (
 };
 
 export const removeItemFromCart = (
-  cartItems: CartItem[],
-  cartItemToRemove: CartItem
+  cartItems: CartItemType[],
+  cartItemToRemove: CartItemType
 ) => {
   const newCartItems = removeCartItem(cartItems, cartItemToRemove);
   return setCartItems(newCartItems);
 };
 
 export const removeSingleItemFromCart = (
-  cartItems: CartItem[],
-  cartItemToRemove: CartItem
+  cartItems: CartItemType[],
+  cartItemToRemove: CartItemType
 ) => {
   const newCartItems = removeSingleItem(cartItems, cartItemToRemove);
   return setCartItems(newCartItems);
