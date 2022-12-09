@@ -40,11 +40,11 @@ export const GoogleSignInButton = styled(BaseButton)`
 `;
 
 export const FacebookSignInButton = styled(BaseButton)`
-  background-color: #1877f2;
+  background-color: #18f22e;
   color: white;
 
   &:hover {
-    background-color: #3f8df4;
+    background-color: #3ff4b2;
     border: none;
   }
 `;
