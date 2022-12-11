@@ -5,4 +5,14 @@ export const AuthenticationContainer = styled.div`
   width: 900px;
   justify-content: space-between;
   margin: 30px auto;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    width: 80vw;
+    align-items: center;
+  }
+`;
+
+export const LoggedInConfirmation = styled.div`
+  align-items: center;
 `;
