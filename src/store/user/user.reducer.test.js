@@ -29,4 +29,32 @@ describe('userReducer', () => {
       })
     ).toEqual(USER_INITIAL_STATE);
   });
+
+  it('should set errorMessage to payload on signInFailed, signUpFailed, and signOutFailed', () => {
+    const mockError = {
+      message: 'WARNING',
+      code: 404,
+    };
+
+    expect(
+      userReducer(USER_INITIAL_STATE, {
+        type: USER_ACTION_TYPES.SIGN_IN_FAILED,
+        payload: mockError,
+      })
+    ).toEqual({ ...USER_INITIAL_STATE, error: mockError });
+
+    expect(
+      userReducer(USER_INITIAL_STATE, {
+        type: USER_ACTION_TYPES.SIGN_UP_FAILED,
+        payload: mockError,
+      })
+    ).toEqual({ ...USER_INITIAL_STATE, error: mockError });
+
+    expect(
+      userReducer(USER_INITIAL_STATE, {
+        type: USER_ACTION_TYPES.SIGN_OUT_FAILED,
+        payload: mockError,
+      })
+    ).toEqual({ ...USER_INITIAL_STATE, error: mockError });
+  });
 });
